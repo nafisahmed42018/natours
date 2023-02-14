@@ -15,5 +15,155 @@ Dark green: #28b485
 }
 
 body{
-    width: 100vw;
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #777;
+    line-height: 1.7;
+    padding: 1.875rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+.header{
+    position: relative;
+    height: 95vh;
+    background-image: 
+    linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)) ,
+    url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top center;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+}
+
+.logo__container{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo{
+    height: 35px;
+}
+
+.header__container{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.header__content{
+    color: #fff;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 3.75rem;
+}
+
+.header__content-main{
+ display: block;
+ font-family: Lato, sans-serif;
+ font-weight: 400;
+ font-size: 3.75rem;
+ letter-spacing: 35px;
+ text-align: center;
+ animation: AnimeLeft 1s ease-in;
+}
+
+.header__content-sub{
+ display: block;
+ font-family: Lato, sans-serif;
+ font-weight: 700;
+ font-size: 1.25rem;
+ letter-spacing: 17px;
+ text-align: center;
+ animation: AnimeRight 1s ease-in;
+}
+
+.button__hero{
+    cursor: pointer;
+    color: #fff;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2rem;
+    transition: all .3s;
+    position: relative;
+    animation: AnimeUp 1s ease-in;
+    /* font-size: 1rem; */
+}
+
+.button__hero a{
+    color: #777;
+}
+
+.button__hero:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .25);
+}
+
+.button__hero:active{
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .25);
+}
+
+.button__hero::after{
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 2rem;
+    background-color: #fff;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.button__hero:hover::after{
+    transform: scaleX(1.25) scaleY(1.5);
+    opacity: 0;
+}
+
+@keyframes AnimeLeft {
+    0%{
+        opacity: 0;
+        transform: translate(-100px, 15px);
+    }
+    75%{
+        transform: translateX(15px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }   
+}
+
+@keyframes AnimeRight { 
+    0%{
+        opacity: 0;
+        transform: translate(100px, -15px);
+    }
+    75%{
+        transform: translateX(-15px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }   
+}
+
+@keyframes AnimeUp { 
+    0%{
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }   
 }
