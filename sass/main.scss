@@ -1,0 +1,186 @@
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-dark-gray:#777;
+$color-white:#fff;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+
+
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    box-sizing: border-box;
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: $color-dark-gray;
+    line-height: 1.7;
+    padding: 3rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+.header{
+    box-sizing: content-box;
+    position: relative;
+    height: 95vh;
+    background-image: 
+    linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)) ,
+    url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top center;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+    &__logo{
+        height: 3.5rem;
+    }
+    
+    &__container{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+    }
+}
+
+.logo__container{
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+}
+
+
+
+.header__content{
+    color: $color-white;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+    &-main{
+        display: block;
+        font-family: Lato, sans-serif;
+        font-weight: 400;
+        font-size: 6rem;
+        letter-spacing: 3.5rem;
+        text-align: center;
+        animation: AnimeLeft 1s ease-in;
+       }
+       
+       &-sub{
+        display: block;
+        font-family: Lato, sans-serif;
+        font-weight: 700;
+        font-size: 2rem;
+        letter-spacing: 1.7rem;
+        text-align: center;
+        animation: AnimeRight 1s ease-in;
+       }
+}
+
+
+
+/* .button__hero:nth */
+
+.button__hero{
+    cursor: pointer;
+    color: $color-white;
+    padding: 1.6rem 3.2rem;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 3.2rem;
+    transition: all .3s;
+    position: relative;
+    animation: AnimeUp 1s ease-in;
+    font-size: 1.6rem;
+    /* font-size: 1rem; */
+    & a{
+        color: $color-dark-gray;
+    }
+    
+    &:hover{
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, .25);
+    }
+    
+    &:active{
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, .25);
+    }
+    
+    &::after{
+        /* background-color: red; */
+        position: absolute;
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: 3.2rem;
+        background-color: $color-white;
+        z-index: -1;
+        transition: all .4s;
+    }
+    
+    &:hover::after{
+        transform: scaleX(1.25) scaleY(1.5);
+        opacity: 0;
+    }
+}
+
+
+
+@keyframes AnimeLeft {
+    0%{
+        opacity: 0;
+        transform: translate(-10rem, 1.5rem);
+    }
+    75%{
+        transform: translateX(1.5rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }   
+}
+
+@keyframes AnimeRight { 
+    0%{
+        opacity: 0;
+        transform: translate(10rem, -1.5rem);
+    }
+    75%{
+        transform: translateX(-1.5rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }   
+}
+
+@keyframes AnimeUp { 
+    0%{
+        opacity: 0;
+        transform: translateY(5rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }   
+}
